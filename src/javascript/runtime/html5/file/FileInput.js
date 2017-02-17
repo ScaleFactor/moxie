@@ -71,10 +71,12 @@ define("moxie/runtime/html5/file/FileInput", [
 					}, comp.uid);
 
 					comp.bind('Refresh', function() {
-						zIndex = parseInt(_browseBtnZIndex, 10) || 1;
+						if(Dom.get(_options.browse_button)) {
+							zIndex = parseInt(_browseBtnZIndex, 10) || 1;
 
-						Dom.get(_options.browse_button).style.zIndex = zIndex;
-						this.getRuntime().getShimContainer().style.zIndex = zIndex - 1;
+							Dom.get(_options.browse_button).style.zIndex = zIndex;
+							this.getRuntime().getShimContainer().style.zIndex = zIndex - 1;
+						}
 					});
 				}
 
